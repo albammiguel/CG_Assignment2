@@ -24,7 +24,9 @@ Shaders shaders;
 
 // Modelos
 Model plane;
-
+Model cylinder;
+Model sphere;
+Model cone;
 
 // Viewport
 int w = 600;
@@ -81,6 +83,9 @@ void funInit() {
 
     // Modelos
     plane.initModel("resources/models/plane.obj");
+    cylinder.initModel("resources/models/cylinder.obj");
+    sphere.initModel("resources/models/sphere.obj");
+    cone.initModel("resources/models/cone.obj");
 
 
 }
