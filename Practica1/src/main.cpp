@@ -16,8 +16,8 @@ void funDisplay();
 
 void drawObject(Model model, glm::vec3 color, glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawSuelo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
-/*void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M);
-void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);*/
+void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 
 // Shaders
 Shaders shaders;
@@ -33,8 +33,9 @@ int w = 600;
 int h = 600;
 
 // Animaciones
-float desZ = 0.0;
-float rotZ = 0.0;
+float desY = -2.75;
+float rotX = 90.0;
+float rotY = 90.0;
 
 int main(int argc, char** argv) {
 
@@ -125,9 +126,10 @@ void funDisplay() {
 
     // Dibujamos la escena
     drawSuelo(P,V,I);
+    drawHelice(P,V,I);
 
-    glm::mat4 R = glm::rotate   (I, glm::radians(rotZ), glm::vec3(0, 0, 1));
-    glm::mat4 T = glm::translate(I, glm::vec3(0.0, 0.0, desZ));
+    /*glm::mat4 R = glm::rotate   (I, glm::radians(rotZ), glm::vec3(0, 0, 1));
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, 0.0, desZ));*/
 
     // Intercambiamos los buffers
     glutSwapBuffers();
@@ -155,21 +157,23 @@ void drawSuelo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
 }
 
-/*void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
+void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
-    glm::mat4 T = glm::translate(I, glm::vec3(0.0, -1.0, 0.0));
-    drawObject(triangle,glm::vec3(1.0, 0.0, 0.0),P,V,M*T);
+    glm::mat4 S = glm::scale(I, glm::vec3(0.074, 0.06,  0.02 ));
+    glm::mat4 R = glm::rotate   (I, glm::radians(rotX), glm::vec3(1, 0, 0));
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desY, 0.0));
+    drawObject(cone,glm::vec3(1.0, 0.0, 0.0),P,V,M*R*S*T);
 
 }
 
 void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
-    glm::mat4 R90 = glm::rotate(I, glm::radians(90.0f), glm::vec3(0, 0, 1));
+    glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY), glm::vec3(0, 1, 0));
     drawAspa(P,V,M);
-    drawAspa(P,V,M*R90);
-    drawAspa(P,V,M*R90*R90);
-    drawAspa(P,V,M*R90*R90*R90);
+    drawAspa(P,V,M*RY90);
+    drawAspa(P,V,M*RY90*RY90);
+    drawAspa(P,V,M*RY90*RY90*RY90);
 
-}*/
+}
 
 
