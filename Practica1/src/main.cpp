@@ -146,6 +146,21 @@ void funDisplay() {
     drawSuelo(P,V,I);
     drawTiovivo(P,V,I);
 
+    //EJERCICIO 4
+    //M1
+//    glm::mat4 T = glm::translate(I, glm::vec3(2.0, 0.0, 2.0));
+//    glm::mat4 R = glm::rotate(I, glm::radians(18.0f), glm::vec3(0, 1, 0));
+//    glm::mat4 M1 = T*R;
+//    drawTiovivo(P,V,M1);
+
+    //M2
+//    glm::mat4 T2 = glm::translate(I, glm::vec3(1.0, 0.0, 1.0));
+//    glm::mat4 RZ = glm::rotate(I, glm::radians(30.0f), glm::vec3(0, 0, 1));
+//    glm::mat4 RX = glm::rotate(I, glm::radians(30.0f), glm::vec3(-1, 0, 0));
+//    glm::mat4 RY = glm::rotate(I, glm::radians(40.0f), glm::vec3(0, 1, 0));
+//    glm::mat4 M2 = T2*RX*RZ*RY;
+//    drawTiovivo(P,V,M2);
+
 
     // Intercambiamos los buffers
     glutSwapBuffers();
@@ -169,7 +184,7 @@ void drawObject(Model model, glm::vec3 color, glm::mat4 P, glm::mat4 V, glm::mat
 void drawSuelo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
     glm::mat4 S = glm::scale(I, glm::vec3(2.0, 1.0, 2.0));
-    drawObject(plane,glm::vec3(0.6, 0.6, 0.6),P,V,M*S);
+    drawObject(plane,glm::vec3(0.552941 , 0.552941 , 0.552941),P,V,M*S);
 
 }
 
