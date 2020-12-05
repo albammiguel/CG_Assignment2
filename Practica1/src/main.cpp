@@ -18,7 +18,11 @@ void drawObject(Model model, glm::vec3 color, glm::mat4 P, glm::mat4 V, glm::mat
 void drawSuelo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
-//void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawBrazos(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawEsfera(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawEstructuraSuperior(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 
 // Shaders
 Shaders shaders;
@@ -34,10 +38,14 @@ int w = 600;
 int h = 600;
 
 // Transformaciones
-float desY = -2.75455951691;
+float desYCone = -2.75455951691;
+float desYCylinder = -1;
+float DesXHelice = -1;
+float desZCylinder = -1;
 float rotX = 90.0;
 float rotY90 = 90.0;
 float rotY45 = 45.0;
+float rotY72 = 72.0;
 
 int main(int argc, char** argv) {
 
@@ -121,16 +129,14 @@ void funDisplay() {
     glm::mat4 P  = glm::perspective(glm::radians(fovy), aspect, nplane, fplane);
 
     // Matriz V
-    glm::vec3 pos   (4.0, 4.0, 4.0);
+    glm::vec3 pos   (4.0, 0, 0);
     glm::vec3 eye(0.0, 0.0, 0.0);
     glm::vec3 up    (0.0, 1.0,  0.0);
     glm::mat4 V = glm::lookAt(pos, eye, up);
 
     // Dibujamos la escena
     drawSuelo(P,V,I);
-//    drawBrazo(P,V,I);
-    glm::mat4 M = glm::rotate(I, glm::radians(rotY45), glm::vec3(0, 1, 0));
-    drawHelice(P,V,M);
+    drawEstructuraSuperior(P,V,I);
 
 
 
@@ -164,7 +170,7 @@ void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
     glm::mat4 S = glm::scale(I, glm::vec3(0.037, 0.06,  0.011 ));
     glm::mat4 R = glm::rotate   (I, glm::radians(rotX), glm::vec3(1, 0, 0));
-    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desY, 0.0));
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYCone, 0.0));
     drawObject(cone,glm::vec3(1.0, 0.0, 0.0),P,V,M*R*S*T);
 
 }
@@ -179,7 +185,44 @@ void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
 }
 
-/*void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
-    drawObject(cylinder,glm::vec3(0.0, 0.0, 1.0),P,V,M);
-}*/
+void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
+    glm::mat4 S = glm::scale(I, glm::vec3(0.05, 0.5,  0.05));
+    glm::mat4 R = glm::rotate   (I, glm::radians(rotX), glm::vec3(1, 0, 0));
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYCylinder, desZCylinder));
+    drawObject(cylinder,glm::vec3(0.0, 0.0, 1.0),P,V,M*R*S*T);
+}
+
+void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    glm::mat4 RY45 = glm::rotate(I, glm::radians(rotY45), glm::vec3(0, 1, 0));
+    glm::mat4 T = glm::translate(I, glm::vec3(-DesXHelice, 0.0,0.0));
+    drawHelice(P,V,M*T*RY45);
+    glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, -1, 0));
+    glm::mat4 RY902 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, 0, 1));
+    glm::mat4 T2 = glm::translate(I, glm::vec3(0.0, -0.05,0.0));
+    drawBrazo(P,V,M*RY90*RY902*T2);
+
+}
+
+void drawBrazos(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    glm::mat4 RY72 = glm::rotate(I, glm::radians(rotY72), glm::vec3(0, 1, 0));
+    drawBrazoHelice(P,V,M);
+    drawBrazoHelice(P,V,M*RY72);
+    drawBrazoHelice(P,V,M*RY72*RY72);
+    drawBrazoHelice(P,V,M*RY72*RY72*RY72);
+    drawBrazoHelice(P,V,M*RY72*RY72*RY72*RY72);
+
+}
+
+void drawEsfera(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    glm::mat4 S = glm::scale(I, glm::vec3(0.3, 0.3,  0.3 ));
+    drawObject(sphere,glm::vec3(0.0, 1.0, 0.0),P,V,M*S);
+}
+
+void drawEstructuraSuperior(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    drawBrazos(P,V,M);
+    drawEsfera(P,V,M);
+
+}
+
+
 
