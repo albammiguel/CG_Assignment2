@@ -45,13 +45,14 @@ int h = 600;
 // Transformaciones
 float desYCone = -2.75455951691;
 float desYCylinder = -1;
-float DesXHelice = -1;
+float DesXHelice = 1;
 float desZCylinder = -1;
 float desYPlataforma = 1;
 float desYTronco = 2.1;
 float desYEstructuraSuperior = 1.3;
 float rotX = 90.0;
 float rotY90 = 90.0;
+float rotZ90 = 90.0;
 float rotY45 = 45.0;
 float rotY72 = 72.0;
 
@@ -147,13 +148,13 @@ void funDisplay() {
     drawTiovivo(P,V,I);
 
     //EJERCICIO 4
-    //M1
+    //M1 (comentado para que al ejecutar salga solo posición inicial tiovivo)
 //    glm::mat4 T = glm::translate(I, glm::vec3(2.0, 0.0, 2.0));
 //    glm::mat4 R = glm::rotate(I, glm::radians(18.0f), glm::vec3(0, 1, 0));
 //    glm::mat4 M1 = T*R;
 //    drawTiovivo(P,V,M1);
 
-    //M2
+    //M2 (comentado para que al ejecutar salga solo posición inicial tiovivo)
 //    glm::mat4 T2 = glm::translate(I, glm::vec3(1.0, 0.0, 1.0));
 //    glm::mat4 RZ = glm::rotate(I, glm::radians(30.0f), glm::vec3(0, 0, 1));
 //    glm::mat4 RX = glm::rotate(I, glm::radians(30.0f), glm::vec3(-1, 0, 0));
@@ -216,10 +217,10 @@ void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
 void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     glm::mat4 RY45 = glm::rotate(I, glm::radians(rotY45), glm::vec3(0, 1, 0));
-    glm::mat4 T = glm::translate(I, glm::vec3(-DesXHelice, 0.0,0.0));
+    glm::mat4 T = glm::translate(I, glm::vec3(DesXHelice, 0.0,0.0));
     drawHelice(P,V,M*T*RY45);
     glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, -1, 0));
-    glm::mat4 RY902 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, 0, 1));
+    glm::mat4 RY902 = glm::rotate(I, glm::radians(rotZ90), glm::vec3(0, 0, 1));
     glm::mat4 T2 = glm::translate(I, glm::vec3(0.0, -0.05,0.0));
     drawBrazo(P,V,M*RY90*RY902*T2);
 
@@ -248,12 +249,14 @@ void drawEstructuraSuperior(glm::mat4 P, glm::mat4 V, glm::mat4 M){
 
 void drawTronco(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     glm::mat4 S = glm::scale(I, glm::vec3(0.093,0.268,0.093));
+    //Lo desplazamos para ponerlo apoyado justo en el suelo.
     glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYTronco,0.0));
     drawObject(cone,glm::vec3(1.0, 0.5, 0.0),P,V,M*S*T);
 }
 
 void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     glm::mat4 S = glm::scale(I, glm::vec3(0.6,0.05,0.6));
+    //Lo desplazamos para ponerlo apoyado justo en el suelo.
     glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYPlataforma,0.0));
     drawObject(cylinder,glm::vec3(1.0, 1.0, 0.0),P,V,M*S*T);
 }
