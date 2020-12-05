@@ -130,8 +130,8 @@ CMakeFiles/Practica1.dir/src/Model.cpp.obj
  ../../libraries/includes/glm/vec4.hpp
  ../../libraries/includes/glm/vector_relational.hpp
  ../../libraries/includes/ogl/glew.h
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.cpp
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.h
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.cpp
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.h
 CMakeFiles/Practica1.dir/src/Shaders.cpp.obj
  ../../libraries/includes/glm/common.hpp
  ../../libraries/includes/glm/detail/_fixes.hpp
@@ -235,8 +235,8 @@ CMakeFiles/Practica1.dir/src/Shaders.cpp.obj
  ../../libraries/includes/glm/vec4.hpp
  ../../libraries/includes/glm/vector_relational.hpp
  ../../libraries/includes/ogl/glew.h
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.cpp
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.h
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.cpp
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.h
 CMakeFiles/Practica1.dir/src/main.cpp.obj
  ../../libraries/includes/assimp/Compiler/poppack1.h
  ../../libraries/includes/assimp/Compiler/pstdint.h
@@ -371,6 +371,6 @@ CMakeFiles/Practica1.dir/src/main.cpp.obj
  ../../libraries/includes/ogl/freeglut_ext.h
  ../../libraries/includes/ogl/freeglut_std.h
  ../../libraries/includes/ogl/glew.h
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.h
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.h
- C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/main.cpp
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.h
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.h
+ C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/main.cpp

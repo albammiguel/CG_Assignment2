@@ -3,13 +3,13 @@
 cmake_policy(SET CMP0009 NEW)
 
 # SRC_FILES at CMakeLists.txt:12 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/*.cpp")
 set(OLD_GLOB
-  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.cpp"
-  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.cpp"
-  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/main.cpp"
+  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.cpp"
+  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.cpp"
+  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/cmake.verify_globs")
 endif()

@@ -8,24 +8,24 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Practica1">
-				<Option output="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/binary/Practica1.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug"/>
+				<Option output="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/binary/Practica1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src"/>
-					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/../libraries/includes"/>
+					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src"/>
+					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/../libraries/includes"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
@@ -34,21 +34,21 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica1"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica1"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Practica1/fast">
-				<Option output="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/binary/Practica1.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug"/>
+				<Option output="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/binary/Practica1.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src"/>
-					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/../libraries/includes"/>
+					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src"/>
+					<Add directory="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/../libraries/includes"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
@@ -57,49 +57,49 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica1/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Practica1/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug"/>
+				<Option working_dir="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.cpp">
+		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.cpp">
 			<Option target="Practica1"/>
 		</Unit>
-		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.h">
+		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.h">
 			<Option target="Practica1"/>
 		</Unit>
-		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.cpp">
+		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.cpp">
 			<Option target="Practica1"/>
 		</Unit>
-		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.h">
+		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.h">
 			<Option target="Practica1"/>
 		</Unit>
-		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/main.cpp">
+		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/main.cpp">
 			<Option target="Practica1"/>
 		</Unit>
-		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/CMakeLists.txt">
+		<Unit filename="C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

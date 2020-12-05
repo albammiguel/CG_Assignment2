@@ -18,6 +18,7 @@ void drawObject(Model model, glm::vec3 color, glm::mat4 P, glm::mat4 V, glm::mat
 void drawSuelo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+//void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 
 // Shaders
 Shaders shaders;
@@ -32,10 +33,11 @@ Model cone;
 int w = 600;
 int h = 600;
 
-// Animaciones
-float desY = -2.75;
+// Transformaciones
+float desY = -2.75455951691;
 float rotX = 90.0;
-float rotY = 90.0;
+float rotY90 = 90.0;
+float rotY45 = 45.0;
 
 int main(int argc, char** argv) {
 
@@ -126,10 +128,11 @@ void funDisplay() {
 
     // Dibujamos la escena
     drawSuelo(P,V,I);
-    drawHelice(P,V,I);
+//    drawBrazo(P,V,I);
+    glm::mat4 M = glm::rotate(I, glm::radians(rotY45), glm::vec3(0, 1, 0));
+    drawHelice(P,V,M);
 
-    /*glm::mat4 R = glm::rotate   (I, glm::radians(rotZ), glm::vec3(0, 0, 1));
-    glm::mat4 T = glm::translate(I, glm::vec3(0.0, 0.0, desZ));*/
+
 
     // Intercambiamos los buffers
     glutSwapBuffers();
@@ -159,7 +162,7 @@ void drawSuelo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
 void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
-    glm::mat4 S = glm::scale(I, glm::vec3(0.074, 0.06,  0.02 ));
+    glm::mat4 S = glm::scale(I, glm::vec3(0.037, 0.06,  0.011 ));
     glm::mat4 R = glm::rotate   (I, glm::radians(rotX), glm::vec3(1, 0, 0));
     glm::mat4 T = glm::translate(I, glm::vec3(0.0, desY, 0.0));
     drawObject(cone,glm::vec3(1.0, 0.0, 0.0),P,V,M*R*S*T);
@@ -168,7 +171,7 @@ void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
 void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
-    glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY), glm::vec3(0, 1, 0));
+    glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, 1, 0));
     drawAspa(P,V,M);
     drawAspa(P,V,M*RY90);
     drawAspa(P,V,M*RY90*RY90);
@@ -176,4 +179,7 @@ void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 
 }
 
+/*void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
+    drawObject(cylinder,glm::vec3(0.0, 0.0, 1.0),P,V,M);
+}*/
 

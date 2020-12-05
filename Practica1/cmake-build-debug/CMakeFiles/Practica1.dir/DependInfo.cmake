@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Model.cpp" "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir/src/Model.cpp.obj"
-  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/Shaders.cpp" "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir/src/Shaders.cpp.obj"
-  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/src/main.cpp" "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/practica 1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir/src/main.cpp.obj"
+  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Model.cpp" "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir/src/Model.cpp.obj"
+  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/Shaders.cpp" "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir/src/Shaders.cpp.obj"
+  "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/src/main.cpp" "C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
