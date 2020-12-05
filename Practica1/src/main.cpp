@@ -23,6 +23,11 @@ void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawBrazos(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawEsfera(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawEstructuraSuperior(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawTronco(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawEstucturaInferior(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+
 
 // Shaders
 Shaders shaders;
@@ -42,6 +47,9 @@ float desYCone = -2.75455951691;
 float desYCylinder = -1;
 float DesXHelice = -1;
 float desZCylinder = -1;
+float desYPlataforma = 1;
+float desYTronco = 2.1;
+float desYEstructuraSuperior = 1.3;
 float rotX = 90.0;
 float rotY90 = 90.0;
 float rotY45 = 45.0;
@@ -129,15 +137,14 @@ void funDisplay() {
     glm::mat4 P  = glm::perspective(glm::radians(fovy), aspect, nplane, fplane);
 
     // Matriz V
-    glm::vec3 pos   (4.0, 0, 0);
+    glm::vec3 pos   (4.0, 4.0, 4.0);
     glm::vec3 eye(0.0, 0.0, 0.0);
     glm::vec3 up    (0.0, 1.0,  0.0);
     glm::mat4 V = glm::lookAt(pos, eye, up);
 
     // Dibujamos la escena
     drawSuelo(P,V,I);
-    drawEstructuraSuperior(P,V,I);
-
+    drawTiovivo(P,V,I);
 
 
     // Intercambiamos los buffers
@@ -222,6 +229,29 @@ void drawEstructuraSuperior(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     drawBrazos(P,V,M);
     drawEsfera(P,V,M);
 
+}
+
+void drawTronco(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    glm::mat4 S = glm::scale(I, glm::vec3(0.093,0.268,0.093));
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYTronco,0.0));
+    drawObject(cone,glm::vec3(1.0, 0.5, 0.0),P,V,M*S*T);
+}
+
+void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    glm::mat4 S = glm::scale(I, glm::vec3(0.6,0.05,0.6));
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYPlataforma,0.0));
+    drawObject(cylinder,glm::vec3(1.0, 1.0, 0.0),P,V,M*S*T);
+}
+
+void drawEstucturaInferior(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    drawTronco(P,V,M);
+    drawPlataforma(P,V,M);
+}
+
+void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+    drawEstucturaInferior(P,V,M);
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYEstructuraSuperior, 0.0));
+    drawEstructuraSuperior(P,V,M*T);
 }
 
 
