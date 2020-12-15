@@ -27,8 +27,9 @@ void drawEsfera(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawEstructuraSuperior(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawTronco(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M);
-void drawEstucturaInferior(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void funTimer(int value);
+void funKeyboard(unsigned char key, int x, int y);
 
 
 // Shaders
@@ -58,6 +59,11 @@ float rotY90 = 90.0;
 float rotZ90 = 90.0;
 float rotY45 = 45.0;
 float rotY72 = 72.0;
+float rotHelice = 0;
+float rotTiovivo = 0;
+
+//Tiempo
+GLint speed = 20;
 
 int main(int argc, char** argv) {
 
@@ -69,7 +75,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(w,h);
     glutInitWindowPosition(50,50);
-    glutCreateWindow("Practica 1");
+    glutCreateWindow("Practica 2");
 
     // Inicializamos GLEW
     glewExperimental = GL_TRUE;
@@ -88,6 +94,8 @@ int main(int argc, char** argv) {
     // Configuración CallBacks
     glutReshapeFunc(funReshape);
     glutDisplayFunc(funDisplay);
+    glutTimerFunc(speed,funTimer,0);
+    glutKeyboardFunc(funKeyboard);
 
     // Bucle principal
     glutMainLoop();
@@ -149,6 +157,7 @@ void funDisplay() {
     // Dibujamos la escena
     drawSuelo(P,V,I);
     drawTiovivo(P,V,I);
+
 
     // Intercambiamos los buffers
     glutSwapBuffers();
@@ -222,8 +231,9 @@ void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     drawSoporte(P,V,M*TX);
 
     glm::mat4 RY45 = glm::rotate(I, glm::radians(rotY45), glm::vec3(0, 1, 0));
+    glm::mat4 RY = glm::rotate(I, glm::radians(rotHelice), glm::vec3(0, 1, 0));
     glm::mat4 T = glm::translate(I, glm::vec3(DesXHelice, DesYHelice,0.0));
-    drawHelice(P,V,M*T*RY45);
+    drawHelice(P,V,M*T*RY45*RY);
 
     glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, -1, 0));
     glm::mat4 RY902 = glm::rotate(I, glm::radians(rotZ90), glm::vec3(0, 0, 1));
@@ -267,16 +277,37 @@ void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     drawObject(cylinder,glm::vec3(1.0, 1.0, 0.0),P,V,M*S*T);
 }
 
-void drawEstucturaInferior(glm::mat4 P, glm::mat4 V, glm::mat4 M){
-    drawTronco(P,V,M);
+void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     drawPlataforma(P,V,M);
+    glm::mat4 R = glm::rotate(I, glm::radians(rotTiovivo), glm::vec3(0, 1, 0));
+    drawTronco(P,V,M*R);
+    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYEstructuraSuperior, 0.0));
+    drawEstructuraSuperior(P,V,M*T*R);
 }
 
-void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M){
-    drawEstucturaInferior(P,V,M);
-    glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYEstructuraSuperior, 0.0));
-    drawEstructuraSuperior(P,V,M*T);
+
+void funTimer(int value) {
+
+    rotHelice+=2.5;
+    glutPostRedisplay();
+    glutTimerFunc(speed,funTimer,0);
+
 }
+
+void funKeyboard(unsigned char key, int x, int y) {
+
+    switch(key) {
+        case 'r':
+            rotTiovivo-=5;
+            break;
+        case 'R':
+           rotTiovivo+=5;
+            break;
+    }
+    glutPostRedisplay();
+
+}
+
 
 
 
