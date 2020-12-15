@@ -1,2 +1,2 @@
-# CG_Assignment1
-Assignment 1 of the ComputerGraphics course - Implementation of a static scene. Specifically, implementation of an app that allow visualizing a little figure of a carousel made by spheres, cylindres and cones using Open GL and C++. 
+# CG_Assignment2
+Assignment 2 of the ComputerGraphics course - Construction of some connections for each of the propellers of each arm of the carousel developed in assignment 1, as well as the inclusion of a series of events, necessary to be able to interact with the scene.

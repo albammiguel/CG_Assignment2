@@ -1,3 +1,0 @@
-C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/Practica1.dir
-C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/albam/Desktop/URJC/CUARTO/PRIMER_CUATRIMESTE/INFORMATICA_GRAFICA/CG_Assignment1/Practica1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
