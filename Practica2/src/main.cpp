@@ -30,6 +30,8 @@ void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void funTimer(int value);
 void funKeyboard(unsigned char key, int x, int y);
+void mouse(int button, int state, int x, int y);
+void funSpecial(int key, int x, int y);
 
 
 // Shaders
@@ -40,6 +42,9 @@ Model plane;
 Model cylinder;
 Model sphere;
 Model cone;
+
+//fovy
+float fovy = 30.0;
 
 // Viewport
 int w = 600;
@@ -61,6 +66,8 @@ float rotY45 = 45.0;
 float rotY72 = 72.0;
 float rotHelice = 0;
 float rotTiovivo = 0;
+float desZtiovivo = 0.0;
+float desXtiovivo = 0.0;
 
 //Tiempo
 GLint speed = 20;
@@ -96,6 +103,8 @@ int main(int argc, char** argv) {
     glutDisplayFunc(funDisplay);
     glutTimerFunc(speed,funTimer,0);
     glutKeyboardFunc(funKeyboard);
+    glutMouseFunc(mouse);
+    glutSpecialFunc(funSpecial);
 
     // Bucle principal
     glutMainLoop();
@@ -142,7 +151,6 @@ void funDisplay() {
     shaders.useShaders();
 
     // Matriz P
-    float fovy   = 30.0;
     float nplane =  0.1;
     float fplane = 25.0;
     float aspect = (float)w/(float)h;
@@ -156,7 +164,8 @@ void funDisplay() {
 
     // Dibujamos la escena
     drawSuelo(P,V,I);
-    drawTiovivo(P,V,I);
+    glm::mat4 T = glm::translate(I, glm::vec3(desXtiovivo, 0.0, desZtiovivo));
+    drawTiovivo(P,V,T);
 
 
     // Intercambiamos los buffers
@@ -302,6 +311,61 @@ void funKeyboard(unsigned char key, int x, int y) {
             break;
         case 'R':
            rotTiovivo+=5;
+            break;
+        case 'Y':
+            if(desYEstructuraSuperior<1.30) {
+                desYEstructuraSuperior+=0.01;
+            }
+            break;
+        case 'y':
+            if(desYEstructuraSuperior>0.35){
+                desYEstructuraSuperior-=0.01;
+            }
+            break;
+
+    }
+    glutPostRedisplay();
+
+}
+
+void mouse(int button, int state, int x, int y){
+    if(button == 3){
+        if(fovy>10) {
+            fovy-=1;
+        }
+    }else if(button == 4){
+        if(fovy<60){
+            fovy+=1;
+        }
+    }
+}
+
+void funSpecial(int key, int x, int y) {
+
+    switch(key) {
+        case GLUT_KEY_UP:
+            if(desZtiovivo>-2){
+                desZtiovivo -= 0.1;
+            }
+            break;
+        case GLUT_KEY_DOWN:
+            if(desZtiovivo<2){
+                desZtiovivo += 0.1;
+            }
+            break;
+        case GLUT_KEY_LEFT:
+            if(desXtiovivo<2){
+                desXtiovivo += 0.1;
+            }
+            break;
+        case GLUT_KEY_RIGHT:
+            if(desXtiovivo>-2){
+                desXtiovivo -= 0.1;
+            }
+            break;
+        default:
+            desZtiovivo = 0.0;
+            desXtiovivo = 0.0;
             break;
     }
     glutPostRedisplay();
