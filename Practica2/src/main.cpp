@@ -20,6 +20,7 @@ void drawAspa(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawSoporte(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawArticulacion(glm::mat4 P, glm::mat4 V, glm::mat4 M);
+void drawCabina(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M);
 void drawBrazos(glm::mat4 P, glm::mat4 V, glm::mat4 M);
@@ -32,6 +33,7 @@ void funTimer(int value);
 void funKeyboard(unsigned char key, int x, int y);
 void mouse(int button, int state, int x, int y);
 void funSpecial(int key, int x, int y);
+void mouseMove(int x, int y);
 
 
 // Shaders
@@ -50,6 +52,11 @@ float fovy = 30.0;
 int w = 600;
 int h = 600;
 
+//Cámara
+float alphaX = 0.0;
+float alphaY = 0.0;
+float move = 0.0;
+
 // Transformaciones
 float desYCone = -2.75455951691;
 float desYCylinder = -1;
@@ -58,7 +65,7 @@ float DesYHelice = -0.3;
 float desZCylinder = -1;
 float desYPlataforma = 1;
 float desYTronco = 2.1;
-float desYEstructuraSuperior = 1.3;
+float desYEstructuraSuperior = 1.30;
 float rotX = 90.0;
 float rotY90 = 90.0;
 float rotZ90 = 90.0;
@@ -68,9 +75,11 @@ float rotHelice = 0;
 float rotTiovivo = 0;
 float desZtiovivo = 0.0;
 float desXtiovivo = 0.0;
+float rotBrazo = 0.0;
 
 //Tiempo
 GLint speed = 20;
+
 
 int main(int argc, char** argv) {
 
@@ -105,6 +114,7 @@ int main(int argc, char** argv) {
     glutKeyboardFunc(funKeyboard);
     glutMouseFunc(mouse);
     glutSpecialFunc(funSpecial);
+    glutMotionFunc(mouseMove);
 
     // Bucle principal
     glutMainLoop();
@@ -157,7 +167,10 @@ void funDisplay() {
     glm::mat4 P  = glm::perspective(glm::radians(fovy), aspect, nplane, fplane);
 
     // Matriz V
-    glm::vec3 pos   (4.0, 4.0, 4.0);
+    float x = 5.0f*glm::cos(glm::radians(alphaY))*glm::sin(glm::radians(alphaX));
+    float y = 5.0f*glm::sin(glm::radians(alphaY));
+    float z = 5.0f*glm::cos(glm::radians(alphaY))*glm::cos(glm::radians(alphaX));
+    glm::vec3 pos(x,y,z);
     glm::vec3 eye(0.0, 0.0, 0.0);
     glm::vec3 up    (0.0, 1.0,  0.0);
     glm::mat4 V = glm::lookAt(pos, eye, up);
@@ -234,20 +247,40 @@ void drawBrazo(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
     drawObject(cylinder,glm::vec3(0.0, 0.0, 1.0),P,V,M*R*S*T);
 }
 
-void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+void drawCabina(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     glm::mat4 TX = glm::translate(I, glm::vec3(1, 0.0,0.0));
-    drawArticulacion(P,V,M*TX);
     drawSoporte(P,V,M*TX);
 
-    glm::mat4 RY45 = glm::rotate(I, glm::radians(rotY45), glm::vec3(0, 1, 0));
+    //Matriz de rotación que mantendrá girando las helices del molino de forma automática.
     glm::mat4 RY = glm::rotate(I, glm::radians(rotHelice), glm::vec3(0, 1, 0));
     glm::mat4 T = glm::translate(I, glm::vec3(DesXHelice, DesYHelice,0.0));
-    drawHelice(P,V,M*T*RY45*RY);
+    drawHelice(P,V,M*T*RY);
+}
+
+void drawBrazoHelice(glm::mat4 P, glm::mat4 V, glm::mat4 M){
+
+    float coseno = glm::cos(glm::radians(rotBrazo));
+    float seno = glm::sin(glm::radians(rotBrazo));
+    //Matriz de traslación que posiciona la esfera magenta al final del cilindro azul principal.
+    glm::mat4 TX = glm::translate(I, glm::vec3(1, 0.0,0.0));
+    //Matriz de rotación que rota el brazo completo el ángulo correspondiente.
+    glm::mat4 R = glm::rotate(I, glm::radians(rotBrazo), glm::vec3(0, 0, -1));
+    /*Matriz uno de traslación que lleva el eje a la posición origen,
+    para después poder rotar el cilindro y la helice y mantenerlos a 90º.*/
+    glm::mat4 TC1 = glm::translate(I, glm::vec3(-coseno, seno,0.0));
+    //Matriz de rotación para mantener el cilindro y la hélice con un ángulo de 90º
+    glm::mat4 RInversa = glm::rotate(I, glm::radians(rotBrazo), glm::vec3(0, 0, 1));
+    //Matriz dos de traslación que lleva el eje a la posición inicial.
+    glm::mat4 TC2 = glm::translate(I, glm::vec3(coseno, -seno,0.0));
+
+    drawArticulacion(P,V,M*R*TX);
+
+    drawCabina(P,V,M*TC2*RInversa*TC1*R);
 
     glm::mat4 RY90 = glm::rotate(I, glm::radians(rotY90), glm::vec3(0, -1, 0));
     glm::mat4 RY902 = glm::rotate(I, glm::radians(rotZ90), glm::vec3(0, 0, 1));
     glm::mat4 T2 = glm::translate(I, glm::vec3(0.0, -0.05,0.0));
-    drawBrazo(P,V,M*RY90*RY902*T2);
+    drawBrazo(P,V,M*R*RY90*RY902*T2);
 
 }
 
@@ -288,6 +321,7 @@ void drawPlataforma(glm::mat4 P, glm::mat4 V, glm::mat4 M){
 
 void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M){
     drawPlataforma(P,V,M);
+    //Matriz para rotar  el tiovivo excepto la plataforma
     glm::mat4 R = glm::rotate(I, glm::radians(rotTiovivo), glm::vec3(0, 1, 0));
     drawTronco(P,V,M*R);
     glm::mat4 T = glm::translate(I, glm::vec3(0.0, desYEstructuraSuperior, 0.0));
@@ -296,7 +330,6 @@ void drawTiovivo(glm::mat4 P, glm::mat4 V, glm::mat4 M){
 
 
 void funTimer(int value) {
-
     rotHelice+=2.5;
     glutPostRedisplay();
     glutTimerFunc(speed,funTimer,0);
@@ -310,16 +343,26 @@ void funKeyboard(unsigned char key, int x, int y) {
             rotTiovivo-=5;
             break;
         case 'R':
-           rotTiovivo+=5;
+            rotTiovivo+=5;
             break;
         case 'Y':
-            if(desYEstructuraSuperior<1.30) {
+            if(desYEstructuraSuperior<=1.29) {
                 desYEstructuraSuperior+=0.01;
             }
             break;
         case 'y':
-            if(desYEstructuraSuperior>0.35){
+            if(desYEstructuraSuperior>=0.34){
                 desYEstructuraSuperior-=0.01;
+            }
+            break;
+        case 'a':
+            if(rotBrazo<45) {
+                rotBrazo+=3;
+            }
+            break;
+        case 'A':
+            if(rotBrazo>0){
+                rotBrazo-=3;
             }
             break;
 
@@ -328,49 +371,89 @@ void funKeyboard(unsigned char key, int x, int y) {
 
 }
 
-void mouse(int button, int state, int x, int y){
+void mouse(GLint button, GLint state, GLint x, GLint y){
+
+    //Si estamos haciendo scroll hacia arriba, el fovy dismuye.
     if(button == 3){
         if(fovy>10) {
-            fovy-=1;
+            fovy -= 1;
         }
+        //Si estamos haciendo scroll hacia abajo, el fovy aumenta.
     }else if(button == 4){
         if(fovy<60){
             fovy+=1;
         }
     }
+
+    //Si y solo si tenemos pulsado el botón izquierdo del ratón, la posición de la cámara se mueve.
+    if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN ){
+        move = 1.0;
+    } else {
+        move = 0.0;
+    }
 }
 
 void funSpecial(int key, int x, int y) {
 
+    //El límite (1.4) viene calculado por la diferencia entre el tamaño del plano (2) y la mitad de la plataforma (0.6).
     switch(key) {
         case GLUT_KEY_UP:
-            if(desZtiovivo>-2){
+            if(desZtiovivo>-1.4){
                 desZtiovivo -= 0.1;
             }
             break;
         case GLUT_KEY_DOWN:
-            if(desZtiovivo<2){
+            if(desZtiovivo<1.4){
                 desZtiovivo += 0.1;
             }
             break;
         case GLUT_KEY_LEFT:
-            if(desXtiovivo<2){
-                desXtiovivo += 0.1;
-            }
-            break;
-        case GLUT_KEY_RIGHT:
-            if(desXtiovivo>-2){
+            if(desXtiovivo>-1.4){
                 desXtiovivo -= 0.1;
             }
             break;
-        default:
-            desZtiovivo = 0.0;
-            desXtiovivo = 0.0;
+        case GLUT_KEY_RIGHT:
+            if(desXtiovivo<1.4){
+                desXtiovivo += 0.1;
+            }
             break;
     }
     glutPostRedisplay();
 
 }
+
+void mouseMove(int x, int y){
+    //Colocamos la posición recibida del puntero del ratón respecto al centro de la ventana.
+    x -= 300;
+    y -= 300;
+
+    /*Para comprobar coordenadas X,Y
+    std::cout <<"---------------------------------" << std::endl;
+    std::cout <<"X:"<< x << std::endl;
+    std::cout <<"Y:"<< y << std::endl;
+    std::cout <<"---------------------------------" << std::endl;*/
+
+    if(move == 1){
+
+        //Calculamos el angulo de movimiento
+        float auxAlphaX = (x*90.0)/300;
+        /*Hay que calcular el opuesto, puesto que, originalmente, la Y que nos devolvían tenía las Y positivas hacia
+         abajo y nosotros queremos lo contrario; cuando el puntero se mueva hacia arriba, la cámara vaya hacia arriba*/
+        float auxAlphaY = -((y*90.0)/300);
+
+        /*si el ángulo calculado respecto a la posición del ratón está dentro del límite, lo actualizamos,
+         para mover la cámara. Si no, se mantiene como esta.*/
+        if((auxAlphaX>=-179 && auxAlphaX<=179) && (auxAlphaY>=-89 && auxAlphaY<=89)){
+            alphaX = auxAlphaX;
+            alphaY = auxAlphaY;
+        }
+    }
+}
+
+
+
+
+
 
 
 

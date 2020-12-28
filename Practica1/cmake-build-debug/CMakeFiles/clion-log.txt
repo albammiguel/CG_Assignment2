@@ -1,1 +1,0 @@
-CMakeLists.txt not found in C:\Users\albam\Desktop\URJC\CUARTO\PRIMER_CUATRIMESTE\INFORMATICA_GRAFICA\CG_Assignment2\Practica1 Select CMakeLists.txt
